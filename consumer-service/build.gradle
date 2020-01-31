@@ -1,9 +1,9 @@
-apply plugin: 'org.springframework.boot'
-
-bootJar {
-    baseName = 'consumer-service'
-    version = '0.0.1'
-}
+//apply plugin: 'org.springframework.boot'
+//
+//bootJar {
+//    archiveBaseName = 'consumer-service'
+//    archiveVersion = '0.0.1'
+//}
 
 dependencies {
 
