@@ -1,0 +1,13 @@
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    baseName = 'discovery-service'
+    version = '0.0.1'
+}
+
+dependencies {
+    compile libs.eurekaServer,
+            libs.gson,
+            libs.jaxb,
+            libs.jaxbruntime
+}

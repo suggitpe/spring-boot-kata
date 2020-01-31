@@ -1,0 +1,4 @@
+include 'bank-account',
+        'discovery-service',
+        'bank-account-service',
+        'consumer-service'

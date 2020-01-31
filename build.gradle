@@ -1,0 +1,60 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.5.RELEASE'
+        pactVersion = '3.5.25'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+                "au.com.dius:pact-jvm-provider-gradle_2.12:${pactVersion}"
+    }
+}
+
+allprojects {
+    defaultTasks 'clean', 'build', 'jacocoTestReport'
+}
+
+subprojects {
+
+    apply from: "$rootDir/dependencies.gradle"
+
+    group = 'org.xpdojo.bank.cdc'
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'au.com.dius.pact'
+    apply plugin: 'jacoco'
+
+    dependencies {
+
+        implementation libs.springBootStarterWeb,
+                libs.swagger,
+                libs.swaggerUI
+
+        testImplementation libs.test.junitApi,
+                libs.test.assertj,
+                libs.test.jsonAssert,
+                libs.test.mockito,
+                libs.test.springBootStarterTest
+
+        testRuntimeOnly libs.test.junitEngine
+    }
+
+    ext {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    test {
+        useJUnitPlatform()
+        systemProperties['contract.rootDir'] = "$buildDir/pacts"
+        systemProperties['pact.writer.overwrite'] = true
+    }
+}
