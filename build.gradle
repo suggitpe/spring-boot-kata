@@ -29,7 +29,6 @@ subprojects {
     }
 
     apply plugin: 'java'
-    apply plugin: 'au.com.dius.pact'
     apply plugin: 'jacoco'
 
     dependencies {
@@ -54,7 +53,5 @@ subprojects {
 
     test {
         useJUnitPlatform()
-        systemProperties['contract.rootDir'] = "$buildDir/pacts"
-        systemProperties['pact.writer.overwrite'] = true
     }
 }

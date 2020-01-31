@@ -5,14 +5,13 @@ bootJar {
     version = '0.0.1'
 }
 
-
 dependencies {
 
     implementation libs.eurekaClient,
             libs.springBootThymeLeafStarter,
             libs.jacksonDatatypeJsr310
 
-    testImplementation libs.test.pactJvmConsumer
+    testImplementation libs.test.restAssured
 
     runtime project(':discovery-service')
 }
