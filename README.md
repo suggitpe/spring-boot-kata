@@ -2,6 +2,7 @@
 This session is aimed at teaching you the basics of Spring Boot and how we can use a few basic concepts to show how a service oriented architecture can work.  We ask for you to work in pairs to build out the service using a test driven approach.
 
 Rule #1: you cannot write any production code without a failing test (think of the compiler as a test).
+Rule #2: you are not allowed to use your mouse, intellij was designed ergonomically
 
 ----
 # Prerequisites
@@ -31,5 +32,30 @@ As we use Gradle, performing the steps below before the session will save time d
 
    You should see a green run icon to the left of the class declaration. If you don't or can't run it, speak to an instructor.
 
+----
+# Instructions
+1. Firstlly lets start the DiscoveryService
+
+    1. Open The DiscoverService class (ctrl+n)
+    1. ctrl+shift+F10 to run it
+    1. lets have a look at it running.  Open a browser and navigate to [localhost:8761](http://localhost:8761)
+    
+1. We are now going to get the BankAccountService running and in there we will create some services that other applications can call.
+
+    1. In the build.gradle (ctrl+shift+n) you need to uncomment out the lines at the top of the file
+    1. Open the BankAccountService (ctrl+n)
+    1. We need to give the class a main method implement the SpringApplication (`new SpringApplicationBuilder(BankAccountService.class).web(SERVLET).run(args)`)
+    1. Add the following annotation on the top of the class: @SpringBootApplication
+    1. Now run it (ctrl+shift+F10).
+    1. Congratulations you have built your first SpringBoot application
+    1. You should now have a look at the config files in the resources directory and get a feel for what they are
+    1. Open up the Discovery Service again and notice that the application has registered itself with the service.  To enable others to contact this service we need to also annotate the class with the `@EnableDiscoveryClient` annotation.
+    1. While we are here lets also annotate the class with Swagger so we can look at the APIs later `@EnableSwagger2`
+    1. Restart the application and lets navigate to [localhost:8901](http://localhost:8901)
+
+1. Now lets add an endpoint to the service:
+
+    1. Firstly lets create the test
+    2. 
 
 
