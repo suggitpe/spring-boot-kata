@@ -34,14 +34,17 @@ As we use Gradle, performing the steps below before the session will save time d
 
 ----
 # Instructions
-1. Firstlly lets start the DiscoveryService
+1. **Running a service**
 
+    1. Firstlly lets start the DiscoveryService so you can see how to run a spring boot service.
     1. Open The DiscoverService class (ctrl+n)
     1. ctrl+shift+F10 to run it
     1. lets have a look at it running.  Open a browser and navigate to [localhost:8761](http://localhost:8761)
+    1. have a look at the configuration files associated with the service.
     
-1. We are now going to get the BankAccountService running and in there we will create some services that other applications can call.
+1. **Building the Bank Account service**
 
+    1. We are now going to get the BankAccountService running and in there we will create some services that other applications can call.
     1. In the build.gradle (ctrl+shift+n) you need to uncomment out the lines at the top of the file
     1. Open the BankAccountService (ctrl+n)
     1. We need to give the class a main method implement the SpringApplication (`new SpringApplicationBuilder(BankAccountService.class).web(SERVLET).run(args)`)
@@ -54,8 +57,9 @@ As we use Gradle, performing the steps below before the session will save time d
     1. Restart the application and lets navigate to [localhost:8901](http://localhost:8901)
     1. Open up the swagger link and you can see the exposed APIs etc
 
-1. Now lets add an endpoint to the service we need to be able to create accounts before we can perform any transactions on them:
+1. **Adding a Post end point**
 
+    1. Now lets add an endpoint to the service we need to be able to create accounts before we can perform any transactions on them:
     1. The first thing we are going to do is to create the test that will a) start up the service and b) call the create account URL.
     1. Open up the existing test skeleton (ctrl+n) for `BankAccountServiceEndpointTest`
     1. Before we do anything run the test class.  What do you notice about the test logging.  Its takes a while to start up, right?
@@ -69,7 +73,18 @@ As we use Gradle, performing the steps below before the session will save time d
     1. Start the application and navigate to the swagger page.  You should  now see the new end point listed.  The details are a bit rubbish, we should really update api documentation.  Open up the endpoint (ctrl+n).  You need to add a description of teh API using teh `@ApiOperation` annotation.  Google it and see how it works.  Now restart and review the swagger page.
     1. Yay, if the test is now green you are done, right?  Wrong ... remember red->green->refactor.  What can you do to improve things before you check in your code?
 
-1. OK we have a create service.  Now lets write another service that retrieves them all.
-    1. But we have a snag.  if we create an account in the method the account will not actually exist.  We also need a repository to store them in longer term. Lets build a repository for the accounts and create it in the endpoint.  This is where we should have a chat about injection of objects into services.
+1. **Create the repository**
 
+    1. OK we have a create service but the accounts aren't stored anywhere
+    1. But we have a snag.  if we create an account in the method the account will not actually exist.  We need a repository to store them in longer term. Lets build a repository for the accounts and create it in the endpoint.  This is where we should have a chat about injection of objects into services.
+    1. Create a class called account repository and change the endpoint to ask the repository to create an account with a unique number.
+    1. Did you remember to write the test first?
+    1. Have a look at the way that the repository is associated with the service.  Its hard wired, yet we are using spring.  Seems odd right?  We should change this and inject something using spring.
+    1. Firstly lets put an interface over the top of the repository and make the interface the member of the endpoint (rename the original one first) .... ctrl+f6 to rename existing and then ctrl+alt+shift+T to open the refactoring function.
+    1. In the main application class create a bean to build the repository and then force injection through the endpoint constructor.
+    1. Run the test again to check its all working (you will know if its failed as you will get a null pointer exception) when you try and use the repository.
+
+1. **Adding a Get end point**
+
+    1. 
 
