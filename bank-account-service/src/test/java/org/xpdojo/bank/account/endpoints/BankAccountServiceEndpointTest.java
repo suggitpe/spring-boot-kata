@@ -59,7 +59,7 @@ public class BankAccountServiceEndpointTest {
 //        AccountSummary account = given()
 //                .header("Content-Type", "application/json")
 //                .when().log().all()
-//                .get("accounts/30001234/balance")
+//                .get("accounts/30001234")
 //                .then().log().all()
 //                .extract().body().as(AccountSummary.class);
 //        assertThat(account.getAccountNumber()).isEqualTo(30001234L);
