@@ -5,6 +5,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
+import org.xpdojo.bank.account.repository.AccountRepository;
+import org.xpdojo.bank.account.repository.InMemoryAccountRepository;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -22,6 +24,11 @@ public class BankAccountService {
         new SpringApplicationBuilder(BankAccountService.class)
                 .web(SERVLET)
                 .run(args);
+    }
+
+    @Bean
+    public AccountRepository createAccountRepository(){
+        return new InMemoryAccountRepository();
     }
 
     @Bean

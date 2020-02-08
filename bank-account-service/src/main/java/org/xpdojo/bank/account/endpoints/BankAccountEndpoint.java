@@ -3,21 +3,22 @@ package org.xpdojo.bank.account.endpoints;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.xpdojo.bank.account.Account;
 import org.xpdojo.bank.account.domain.AccountCreationResponse;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-import static org.xpdojo.bank.account.Account.anAccountWith;
-import static org.xpdojo.bank.account.Money.amountOf;
+import org.xpdojo.bank.account.repository.AccountRepository;
 
 @RestController
 public class BankAccountEndpoint {
 
+    private final AccountRepository repository;
+
+    public BankAccountEndpoint(AccountRepository repository) {
+        this.repository = repository;
+    }
+
     @ApiOperation(value = "Creates accounts and responds with the identification of the account", response = AccountCreationResponse.class)
     @PostMapping(value = "/accounts")
     public AccountCreationResponse createAccount() {
-        Account account = anAccountWith(12345L, amountOf(20.0));
-        return new AccountCreationResponse(account.getAccountNumber());
+        return new AccountCreationResponse(repository.createAccount());
     }
 
 }
