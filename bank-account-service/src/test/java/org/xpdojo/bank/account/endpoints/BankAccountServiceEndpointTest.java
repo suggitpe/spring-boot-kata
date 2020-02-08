@@ -9,15 +9,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import java.util.List;
+import org.xpdojo.bank.account.domain.AccountCreationResponse;
 
 import static io.restassured.RestAssured.given;
 import static java.time.LocalDateTime.now;
 import static org.assertj.core.api.Assertions.assertThat;
 
-//@ExtendWith(SpringExtension.class)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("With the bank account service we can")
 public class BankAccountServiceEndpointTest {
 
@@ -29,16 +28,15 @@ public class BankAccountServiceEndpointTest {
         RestAssured.port = port;
     }
 
-    @Disabled
     @Test
     public void createAccounts(){
-//        AccountCreationResponse response = given()
-//                .header("Content-Type", "application/json")
-//                .when().log().all()
-//                .post("/accounts/create")
-//                .then().log().all()
-//                .extract().body().as(AccountCreationResponse.class);
-//        assertThat(response.accountNumber()).isNotNull();
+        AccountCreationResponse response = given()
+                .header("Content-Type", "application/json")
+                .when().log().all()
+                .post("/accounts")
+                .then().log().all()
+                .extract().body().as(AccountCreationResponse.class);
+        assertThat(response.getAccountNumber()).isNotNull();
     }
 
     @Disabled
