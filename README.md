@@ -1,8 +1,10 @@
 # Building a bank one service at a time
 This session is aimed at teaching you the basics of Spring Boot and how we can use a few basic concepts to show how a service oriented architecture can work.  We ask for you to work in pairs to build out the service using a test driven approach.
 
-Rule #1: you cannot write any production code without a failing test (think of the compiler as a test).
-Rule #2: you are not allowed to use your mouse, intellij was designed ergonomically
+* Rule #1: you cannot write any production code without a failing test (think of the compiler as a test).
+* Rule #2: you are not allowed to use your mouse, intellij was designed ergonomically
+* Rule #3: do this in pairs
+* Rule #4: once you have finished in the led session, delete it and do it again at your own pace.
 
 ----
 # Prerequisites
