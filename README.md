@@ -51,7 +51,7 @@ This kata is structured a set of weekly exercises that are instructor led:
 
 ----
 # Homework
-As with all learning there will be a small amount of homework for you to take away.  We want to build a new solution outside of the katas where you will build a new HR system for the company.  We will start small and grow big, just like this project.  Each week after the session we want you to do the following:
+As with all learning there will be a small amount of homework for you to take away.  We want to build a new solution outside of the katas where you will build a new HR system for the company.  We will start small and grow big, just like this project.  You may want to consider creating a GitHub account to house this.  Each week after the session we want you to do the following:
 
 1. Delete everything you did in the kata and do it again
 1. Complete the homework assignment we give you at the bottom of the kata.
