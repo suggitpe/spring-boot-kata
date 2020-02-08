@@ -12,12 +12,12 @@ import org.xpdojo.bank.account.domain.AccountSummary;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static java.time.LocalDateTime.now;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("With the bank account service we can")
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class BankAccountServiceEndpointTest {
 
     @LocalServerPort
@@ -30,7 +30,7 @@ public class BankAccountServiceEndpointTest {
 
     @Test
     @Order(1)
-    public void createAccounts(){
+    public void createAccounts() {
         AccountCreationResponse response = given()
                 .header("Content-Type", "application/json")
                 .when().log().all()
@@ -42,7 +42,7 @@ public class BankAccountServiceEndpointTest {
 
     @Test
     @Order(2)
-    public void retrieveAccounts(){
+    public void retrieveAccounts() {
         List<AccountSummary> accounts = given()
                 .header("Content-Type", "application/json")
                 .when().log().all()
@@ -55,7 +55,7 @@ public class BankAccountServiceEndpointTest {
 
     @Test
     @Order(3)
-    public void retrieveAccountById(){
+    public void retrieveAccountById() {
         AccountCreationResponse response = given()
                 .header("Content-Type", "application/json")
                 .when().log().all()
