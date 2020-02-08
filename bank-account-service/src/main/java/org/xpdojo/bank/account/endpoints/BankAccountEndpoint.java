@@ -14,7 +14,7 @@ import static org.xpdojo.bank.account.Money.amountOf;
 public class BankAccountEndpoint {
 
     @ApiOperation(value = "Creates accounts and responds with the identification of the account", response = AccountCreationResponse.class)
-    @PostMapping(value = "/accounts", consumes = APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/accounts")
     public AccountCreationResponse createAccount() {
         Account account = anAccountWith(12345L, amountOf(20.0));
         return new AccountCreationResponse(account.getAccountNumber());
