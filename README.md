@@ -44,7 +44,6 @@ This kata is structured a set of weekly exercises that are instructor led:
 * [Week 2](instructions/week-2.md) creating a repository and adding gets into the service
 * [Week 3](instructions/week-3.md) using the discovery service to call another restful application
 * [Week-4](instructions/week-4.md) securing the services
-* [Week-5](instructions/week-5.md)
-
+... more to come 
 
 
