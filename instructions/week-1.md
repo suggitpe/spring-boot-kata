@@ -8,8 +8,8 @@
 The very first thing we are going to do is to take an existing service and show you how to start it and stop it.
 
     * Firstlly lets start the DiscoveryService so you can see how to run a spring boot service.
-    * Open The DiscoverService class (ctrl+n)
-    * ctrl+shift+F10 to run it
+    * Open The DiscoverService class `(ctrl+n)`
+    * Run it `(ctrl+shift+F10)`
     * lets have a look at it running.  Open a browser and navigate to [localhost:8761](http://localhost:8761)
     * have a look at the configuration files associated with the service.
     
@@ -18,8 +18,8 @@ The very first thing we are going to do is to take an existing service and show 
 We are going to start building a real service.  We have a skelton service to start from with a few bits of configuration that you need.  If you want to learn how to create one from scratch, have a look at [Sprint Initializr](https://start.spring.io/) as a quick way to create a spring boot project.
 
     * We are now going to get the BankAccountService running and in there we will create some services that other applications can call.
-    * In the build.gradle (ctrl+shift+n) you need to uncomment out the lines at the top of the file
-    * Open the BankAccountService (ctrl+n)
+    * In the build.gradle `(ctrl+shift+n)` you need to uncomment out the lines at the top of the file
+    * Open the BankAccountService `(ctrl+n)`
     * We need to give the class a main method implement the SpringApplication (`new SpringApplicationBuilder(BankAccountService.class).web(SERVLET).run(args)`)
     * Add the following annotation on the top of the class: @SpringBootApplication
     * Now run it (ctrl+shift+F10).
@@ -27,7 +27,7 @@ We are going to start building a real service.  We have a skelton service to sta
     * You should now have a look at the config files in the resources directory and get a feel for what they are
     * Open up the Discovery Service again and notice that the application has registered itself with the service.  To enable others to contact this service we need to also annotate the class with the `@EnableDiscoveryClient` annotation.
     * While we are here lets also annotate the class with Swagger so we can look at the APIs later `@EnableSwagger2`
-    * Restart the application and lets navigate to [localhost:8901](http://localhost:8901)
+    * Restart the application `(ctrl + f5)` and lets navigate to [localhost:8901](http://localhost:8901)
     * Open up the swagger link and you can see the exposed APIs etc
 
 1. **Adding a Post end point**
