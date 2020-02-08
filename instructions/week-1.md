@@ -57,6 +57,12 @@ Based on what you have built today, we would like you to do the following as hom
 
 * Create a new Spring Boot application using Spring Initializr called `EmployeeService`
 * Create a new endpoint on that service that allows us to create a new employee.  Make sure you test drive it using the same approach as we have in the kata.
+* This time to make things a little difficult for you, you should pass the first name and last name in the body of the post.  Some hints for you:
+    * get it working with no body firstly and make sure thats all working correctly
+    * the test should use the body() method after the header and in there put an employee class with values
+    * `given(...).header(...).body(new Employee("foo", "bar")).when().log().all().post("/employees")`
+    * In the end point you will need to dclare that an employee is going to be called and use the `@RequestBody` annotation to bind it.
+    * Remember ... Google is your friend!!!
 
 Write down any questions you have during the homework and we will tackle them in the next session.
 
