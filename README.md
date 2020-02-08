@@ -19,7 +19,7 @@ As we use Gradle, performing the steps below before the session will save time d
 1. Clone the repository with the following command.
 
 ```console
-git clone https://github.com/suggitpe/spring-boot-kata.git
+$ git clone https://github.com/suggitpe/spring-boot-kata.git
 ```
   
    If you have problems with SSL, you can try the following.
