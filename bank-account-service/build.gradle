@@ -1,9 +1,9 @@
-//apply plugin: 'org.springframework.boot'
+apply plugin: 'org.springframework.boot'
 
-//bootJar {
-//    archiveBaseName = 'bank-account-service'
-//    archiveVersion = '0.0.1'
-//}
+bootJar {
+    archiveBaseName = 'bank-account-service'
+    archiveVersion = '0.0.1'
+}
 
 dependencies {
 
