@@ -41,7 +41,7 @@ public class BankAccountServiceEndpointTest {
 
     @Disabled
     @Test
-    public void retrievesAccounts(){
+    public void retrieveAccounts(){
 //        List<AccountSummary> accounts = given()
 //                .header("Content-Type", "application/json")
 //                .when().log().all()
@@ -54,7 +54,7 @@ public class BankAccountServiceEndpointTest {
 
     @Disabled
     @Test
-    public void retrievesAccountById(){
+    public void retrieveAccountById(){
 //        AccountSummary account = given()
 //                .header("Content-Type", "application/json")
 //                .when().log().all()
