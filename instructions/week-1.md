@@ -46,3 +46,12 @@ You remember the bank account kata, right?  Now we are going to put a REST servi
     * Yay, if the test is now green you are done, right?  Wrong ... remember red->green->refactor.  What can you do to improve things before you check in your code?
 
 Thats about enough for week 1.
+
+# Homework assignment
+Based on what you have built today, we would like you to do the following as homework:
+
+* Create a new Spring Boot application using Spring Initializr called `EmployeeService`
+* Create a new endpoint on that service that allows us to create a new employee.  Make sure you test drive it using the same approach as we have in the kata.
+
+Write down any questions you have during the homework and we will tackle them in the next session.
+
