@@ -1,14 +1,19 @@
 package org.xpdojo.bank.account;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
+import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 import static java.lang.Double.valueOf;
 
+@JsonAutoDetect(fieldVisibility = ANY)
 public class Money implements Comparable<Money> {
 
     private final double value;
 
-    private Money(final double anAmount) {
+    private Money(@JsonProperty("value") final double anAmount) {
         this.value = anAmount;
     }
 
