@@ -9,4 +9,6 @@ public interface AccountRepository {
     Long createAccount();
 
     List<Account> getAllAccounts();
+
+    Account getAccountFor(final Long accountId);
 }

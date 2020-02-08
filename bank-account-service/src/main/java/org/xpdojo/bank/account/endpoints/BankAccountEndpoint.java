@@ -2,6 +2,7 @@ package org.xpdojo.bank.account.endpoints;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xpdojo.bank.account.domain.AccountCreationResponse;
@@ -31,6 +32,12 @@ public class BankAccountEndpoint {
     @GetMapping("/accounts")
     public List<AccountSummary> getAllAccounts() {
         return repository.getAllAccounts().stream().map(acc -> new AccountSummary(acc)).collect(toList());
+    }
+
+    @ApiOperation(value = "Gets a single account based on its accountId", response = AccountSummary.class)
+    @GetMapping("/accounts/{accountId}")
+    public AccountSummary getAccountById(@PathVariable final Long accountId){
+        return new AccountSummary(repository.getAccountFor(accountId));
     }
 
 }

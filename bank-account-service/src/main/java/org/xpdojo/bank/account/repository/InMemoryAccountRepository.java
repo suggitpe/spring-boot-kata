@@ -27,6 +27,11 @@ public class InMemoryAccountRepository implements AccountRepository {
         return accounts.values().stream().collect(toList());
     }
 
+    @Override
+    public Account getAccountFor(Long accountId) {
+        return accounts.get(accountId);
+    }
+
     private Long createAccountNumber() {
         return Math.abs(new Random().nextLong());
     }
