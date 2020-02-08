@@ -3,7 +3,7 @@
 ----
 ## Instructions
 
-1. **Running a service**
+### **Running a service**
 
 The very first thing we are going to do is to take an existing service and show you how to start it and stop it.
 
@@ -13,7 +13,7 @@ The very first thing we are going to do is to take an existing service and show 
 * lets have a look at it running.  Open a browser and navigate to [localhost:8761](http://localhost:8761)
 * have a look at the configuration files associated with the service.
     
-1. **Building the Bank Account service**
+### **Building the Bank Account service**
 
 We are going to start building a real service.  We have a skelton service to start from with a few bits of configuration that you need.  If you want to learn how to create one from scratch, have a look at [Sprint Initializr](https://start.spring.io/) as a quick way to create a spring boot project.
 
@@ -30,14 +30,15 @@ We are going to start building a real service.  We have a skelton service to sta
 * Restart the application `(ctrl + f5)` and lets navigate to [localhost:8901](http://localhost:8901)
 * Open up the swagger link and you can see the exposed APIs etc
 
-1. **Adding a Post end point**
+### **Adding a Post end point**
 
 You remember the bank account kata, right?  Now we are going to put a REST service over the top of it so you can access it remotely (like from a phone app).
 
 * Now lets add an endpoint to the service we need to be able to create accounts before we can perform any transactions on them:
 * The first thing we are going to do is to create the test that will a) start up the service and b) call the create account URL.
 * Open up the existing test skeleton (ctrl+n) for `BankAccountServiceEndpointTest`
-* Before we do anything run the test class.  What do you notice about the test logging.  Its takes a while to start up, right?
+* This test needs to start the service before it can execute the test so we need to uncomment out the annotations at the top of the test.  SpringExtension defines how to integrate into the junit framework.  SpringBootTest sets up the test with default initialisers and a spring context.
+* Now run the test class.  What do you notice about the test logging.  Its takes a while to start up, right?
 * Now uncomment out the first test and you should see that we are getting compiler errors.  We need to create a domain object for the service to operate.
 * Create a package called domain in the same package as the service.  Create the domain object in there.
 * Now rerun the test.  Again what happens when it fails, what's the status we get back from the service? What does a 404 status mean?  It's telling us that the url that we called does not exist.  We need to create the endpoint in the service.
