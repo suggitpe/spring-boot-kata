@@ -42,7 +42,7 @@ public class BankAccountServiceEndpointTest {
 
     @Test
     @Order(2)
-    public void retrievesAccounts(){
+    public void retrieveAccounts(){
         List<AccountSummary> accounts = given()
                 .header("Content-Type", "application/json")
                 .when().log().all()
@@ -55,7 +55,7 @@ public class BankAccountServiceEndpointTest {
 
     @Test
     @Order(3)
-    public void retrievesAccountById(){
+    public void retrieveAccountById(){
         AccountCreationResponse response = given()
                 .header("Content-Type", "application/json")
                 .when().log().all()

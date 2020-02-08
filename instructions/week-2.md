@@ -22,4 +22,22 @@ Firstly lets create the repository.
 
 So far we have been creating accounts only, now we need to get at the accounts.  We need a Get All endpoint that will return all the accounts.
 
-* 
+* Have a look at the Account class.  Now that we have competed the kata, the account class contains all the transactions.  When we get the account data we only want the account summary.  We are going to need a new domain object to represent account summaries.
+* Open the end-point test and uncomment out the test details and remove the `@Disabled` annotation.  You will need to resolve all the compiling errors by creating the summary class.
+* You should see a `405` error.  We have only mapped POST to the /accounts endpoint.  We need a GET.  In the endpoint create a getAllAccounts method and annotate it with `@GetMapping` in the same manner as the post endpoint.  It should return a `List<AccountSummary>`. 
+* You will need a get all on the repository, but dont allow the respository to be poluted with the AccountSummary class.  In the end point you should stream them into AccountSummary classes using `repository.getAllAccounts().stream().map(acc -> new AccountSummary(acc)).collect(toList())`
+* The test you have created is implicitly going to fail sometimes?  Why?  What can we do about this?  Have a look at the Junit5 `@Order()` annotation.
+* You will likely need to update the AccountSummary class with getters, equals/hashcode etc.  To do this use `ctrl+shift+a` to get the actions menu up.
+* You will also likely need to create a new constructor and annotate the parameters with the `@JsonProperty` annotation.
+
+## Adding a "Get by ID" end point
+
+We should now create a new end point that allows us to get an account summary by ID.
+
+* Open up the End Point Test and see the retrieves by Id test.  You can see that we have stubbed out with a random account number.  We need a real one.  Firstly update the test to create a new account and then use the ID from that to retrieve the summary.
+* Now we need to create a new end point to query by ID.  Create a new method that returns an `AccountSummary`.  This method should be a `@GetMapping("/accounts/{accountId}")` and then the method signature should annotate the accountId with `@PathVariable` to bind the mapping amd the method parameter.  You will need to implement a few more methods on the repository to make it work.
+
+----
+# Homework assignment
+
+Last week for your homework you created a simple employee service.  Do the same as today by adding in the repository and the getter end points.
