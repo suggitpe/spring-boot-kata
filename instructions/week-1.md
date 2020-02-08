@@ -37,7 +37,7 @@ You remember the bank account kata, right?  Now we are going to put a REST servi
 * Now lets add an endpoint to the service we need to be able to create accounts before we can perform any transactions on them:
 * The first thing we are going to do is to create the test that will a) start up the service and b) call the create account URL.
 * Open up the existing test skeleton (ctrl+n) for `BankAccountServiceEndpointTest`
-* This test needs to start the service before it can execute the test so we need to uncomment out the annotations at the top of the test.  SpringExtension defines how to integrate into the junit framework.  SpringBootTest sets up the test with default initialisers and a spring context.
+* This test needs to start the service before it can execute the test so we need to uncomment out the annotations at the top of the test.  `@SpringExtension` defines how to integrate into the junit framework.  `@SpringBootTest' sets up the test with default initialisers and a spring context.
 * Now run the test class.  What do you notice about the test logging.  Its takes a while to start up, right?
 * Now uncomment out the first test and you should see that we are getting compiler errors.  We need to create a domain object for the service to operate.
 * Create a package called domain in the same package as the service.  Create the domain object in there.
