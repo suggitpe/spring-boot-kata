@@ -1,9 +1,10 @@
 # Week one
 
+----
 ## Instructions
 
-
 1. **Running a service**
+
 The very first thing we are going to do is to take an existing service and show you how to start it and stop it.
 
     * Firstlly lets start the DiscoveryService so you can see how to run a spring boot service.
@@ -13,6 +14,7 @@ The very first thing we are going to do is to take an existing service and show 
     * have a look at the configuration files associated with the service.
     
 1. **Building the Bank Account service**
+
 We are going to start building a real service.  We have a skelton service to start from with a few bits of configuration that you need.  If you want to learn how to create one from scratch, have a look at [Sprint Initializr](https://start.spring.io/) as a quick way to create a spring boot project.
 
     * We are now going to get the BankAccountService running and in there we will create some services that other applications can call.
@@ -29,6 +31,7 @@ We are going to start building a real service.  We have a skelton service to sta
     * Open up the swagger link and you can see the exposed APIs etc
 
 1. **Adding a Post end point**
+
 You remember the bank account kata, right?  Now we are going to put a REST service over the top of it so you can access it remotely (like from a phone app).
 
     * Now lets add an endpoint to the service we need to be able to create accounts before we can perform any transactions on them:
@@ -47,7 +50,8 @@ You remember the bank account kata, right?  Now we are going to put a REST servi
 
 Thats about enough for week 1.
 
-# Homework assignment
+----
+## Homework assignment
 Based on what you have built today, we would like you to do the following as homework:
 
 * Create a new Spring Boot application using Spring Initializr called `EmployeeService`
