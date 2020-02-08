@@ -49,4 +49,10 @@ This kata is structured a set of weekly exercises that are instructor led:
 
 ... more to come 
 
+----
+# Additionally 
+You may also want to spend a few moments watching some of the Josh Long videos below:
+
+* [Lazy and Fast](https://www.youtube.com/watch?v=_m4xpHUf55E)
+* [Reactive Spring](https://www.youtube.com/watch?v=1F10gr2pbvQ)
 
