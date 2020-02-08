@@ -35,10 +35,10 @@ public class BankAccountServiceEndpointTest {
 //        AccountCreationResponse response = given()
 //                .header("Content-Type", "application/json")
 //                .when().log().all()
-//                .post("/accounts/create")
+//                .post("/accounts")
 //                .then().log().all()
 //                .extract().body().as(AccountCreationResponse.class);
-//        assertThat(response.accountNumber()).isNotNull();
+//        assertThat(response.getAccountNumber()).isNotNull();
     }
 
     @Disabled

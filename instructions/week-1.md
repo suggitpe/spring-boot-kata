@@ -43,8 +43,8 @@ You remember the bank account kata, right?  Now we are going to put a REST servi
 * Create a package called domain in the same package as the service.  Create the domain object in there.
 * Now rerun the test.  Again what happens when it fails, what's the status we get back from the service? What does a 404 status mean?  It's telling us that the url that we called does not exist.  We need to create the endpoint in the service.
 * Start by creating an endpoints package next to the domain and create a `BankAccountEntpoint`.  We need to annotate this class with `@RestController`.
-* In this class we need to create the end point.  Put simply this is a methods that is annotated as a PostEndpoint using `@PostMapping(value = "/accounts", consumes = APPLICATION_JSON_VALUE)` and it should return a new Account.
-* Create an account and return the ID.
+* In this class we need to create the end point.  Put simply this is a methods that is annotated as a PostEndpoint using `@PostMapping(value = "/accounts", consumes = APPLICATION_JSON_VALUE)` and it should return an `AccountCreationResponse`.
+* Create an account and return the response with the Account ID.
 * Now run the test and it should pass.
 * Start the application and navigate to the swagger page.  You should  now see the new end point listed.  The details are a bit rubbish, we should really update api documentation.  Open up the endpoint (ctrl+n).  You need to add a description of teh API using teh `@ApiOperation` annotation.  Google it and see how it works.  Now restart and review the swagger page.
 * Yay, if the test is now green you are done, right?  Wrong ... remember red->green->refactor.  What can you do to improve things before you check in your code?
